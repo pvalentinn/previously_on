@@ -13,13 +13,28 @@ export default function Header({ user, instance }) {
             console.log(response);
         }
     }
+
+    const routes = [
+        {path: '/shows', name: 'Shows'},
+        {path: '/home', name: 'Home'},
+        {path: '/friends', name: 'Friends'},
+    ]
    
 
     return (
         <header className={styles.header}>
             <h3>Welcome {user.login}</h3>
 
-            {router.pathname != '/shows' ?
+            {routes.map((route, i)=> {
+                if(router.pathname == route.path) return
+                return (
+                    <Link href={route.path} key={i}>
+                        <a>{route.name}</a>
+                    </Link>
+                )
+            })}
+
+            {/* {router.pathname != '/shows' ?
                 <Link href="/shows">
                     <a>Shows</a>
                 </Link>
@@ -28,7 +43,7 @@ export default function Header({ user, instance }) {
                     <a>Home</a>
                 </Link>
             }
-        
+         */}
             <button onClick={logout}>Log out</button>
         </header>
     )

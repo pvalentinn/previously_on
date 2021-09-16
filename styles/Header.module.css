@@ -23,4 +23,18 @@
 .header > button {
     height: 25px;
     margin-left: auto;
+    color: #000000;
+    background-color: #ffffff;
+    border: #000000 solid 1px;
+    font-size: 18px;
+    width: 100px;
+    height: 25px;
+    text-align: center;
+    -webkit-user-select: none;
+    cursor: default;
+    margin-bottom: 15px;
+}
+.header > button:hover {
+    color: #ffffff;
+    background-color: #000000;
 }

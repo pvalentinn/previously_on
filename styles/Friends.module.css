@@ -1,0 +1,37 @@
+.container {
+    width: 100%;
+    height: calc(100vh - 150px);
+    padding: 50px;
+}
+
+.container > h1 {
+    text-align: center;
+}
+
+.list {
+    margin: 25px;
+}
+
+.list > h3 {
+    font-size: 1.5rem;
+}
+
+.list > ul {
+    width: fit-content;
+}
+
+.item {
+    height: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.item > span {
+    display: inline-block;
+    float: right;
+    -webkit-user-select: none;
+    cursor: pointer;
+}
+
+.item > span:nth-child(2) {
+    margin-left: 15px;
+}
