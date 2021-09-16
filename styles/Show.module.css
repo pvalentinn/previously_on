@@ -76,6 +76,7 @@
 .description > em {
     font-weight: 600;
     max-height: 80%;
+    font-size: 1.25rem;
     margin: auto;
     text-align: center;
     text-overflow: ellipsis;

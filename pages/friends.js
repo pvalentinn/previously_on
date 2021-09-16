@@ -31,7 +31,7 @@ export default function Friends({ user, users, instance }) {
                     id
                 }
             });
-            
+
             setFriends(friends.map((e) => {
                 if(e.id == id) e.in_account = e.in_account ? false : true
                 return e

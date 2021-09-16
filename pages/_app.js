@@ -1,7 +1,7 @@
-import App from 'next/app'
+import App_N from 'next/app'
+import Head from 'next/head';
 import axios from 'axios';
 import Cookies from 'cookies';
-import '../styles/globals.css';
 
 export let instance = axios.create({
 	headers: {
@@ -9,21 +9,26 @@ export let instance = axios.create({
 	},
 });
 
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
 	let { user } = pageProps;
 
 	instance.defaults.headers.Authorization = user && "Bearer " + user.token;
 	pageProps.instance = instance;
 
 	return (
-		<Component {...pageProps} />
+		<>
+			<Head>
+				<link href="/globals.css" rel="stylesheet"></link>
+            </Head>
+			<Component {...pageProps} />
+		</>
 	)
 }
 
-MyApp.getInitialProps = async (initial) => {
+App.getInitialProps = async (initial) => {
 	let { ctx: { req, res } } = initial;
 	const cookies = new Cookies(req, res);
-	const appProps = await App.getInitialProps(initial);
+	const appProps = await App_N.getInitialProps(initial);
 	
 	try {
 		let user = await JSON.parse(cookies.get('user'));
@@ -37,5 +42,3 @@ MyApp.getInitialProps = async (initial) => {
 	}
 	return { ...appProps }
 }
-
-export default MyApp;

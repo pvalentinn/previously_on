@@ -23,7 +23,7 @@
 .expand {
     width: 20px;
     position: absolute;
-    top: 0;
+    top: 5px;
     right: 5px;
     transform: rotate(-90deg);
     transition: transform 0.5s;
